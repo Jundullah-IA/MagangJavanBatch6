@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Kalkulator Sederhana</title>
+</head>
+<body>
+    <h1>Kalkulator JIA</h1>
+
+    <form  th:action="@{/}" th:object="${calc}" method="get">
+        <input type="number" th:field="*{angka1}" name="angka1" />
+
+        <select name="operator" >
+            <option value="tambah"> + </option>
+            <option value="kurang"> - </option>
+            <option value="kali"> x </option>
+            <option value="bagi"> / </option>
+        </select>
+
+        <input type="number" th:field="*{angka2}" name="angka2" />
+
+        <input type="submit" name="submit" value="submit" >
+
+        <p th:text="${hasil}"/>
+    </form>
+</body>
+</html>
