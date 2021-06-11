@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Ganjil & Genap</title>
+</head>
+<body>
+    <h1>GANJIL GENAP JIA</h1>
+
+    <form th:action="@{/}" th:object="${bilangan}" method="post">
+        <table border="1">
+            <tr>
+                <th>Batas awal</th>
+                <th>Batas akhir</th>
+            </tr>
+            <tr>
+                <td> <input type="number" name="batasAwal"> </td>
+                <td> <input type="number" name="batasAkhir"> </td>
+            </tr>
+
+            <tr>
+                <td colspan="2">
+                    <input type="submit" name="excecute" value="excecute">
+                </td>
+            </tr>
+        </table>
+    </form>
+
+    <br><br>
+
+    <h3>Hasil</h3>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Angka</th>
+                <th>Keterangan</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr th:each="getBilangan:${containerAngka}">
+                <td th:text="${getBilangan.angka}">Jill</td>
+                <td th:text="${getBilangan.keterangan}">Smith</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
