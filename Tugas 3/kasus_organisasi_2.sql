@@ -21,13 +21,29 @@ VALUES
 SELECT nama as CEO FROM employee
 WHERE atasan_id IS NULL;
 
-SELECT nama FROM sdm.employee where atasan_id in (SELECT id FROM sdm.employee where atasan_id in (SELECT id FROM sdm.employee where atasan_id = (SELECT id FROM sdm.employee where atasan_id is null)));
+SELECT nama FROM sdm.employee 
+where atasan_id in 
+	(SELECT id FROM sdm.employee 
+	where atasan_id in 
+		(SELECT id FROM sdm.employee 
+		where atasan_id = 
+		(SELECT id FROM sdm.employee 
+		where atasan_id is null)));
 
-SELECT nama FROM sdm.employee where atasan_id in (SELECT id FROM sdm.employee where atasan_id is null);
+SELECT nama FROM sdm.employee 
+where atasan_id in 
+	(SELECT id FROM sdm.employee 
+	where atasan_id is null);
 
-SELECT nama FROM sdm.employee where atasan_id in (SELECT id FROM sdm.employee where atasan_id = (SELECT id FROM sdm.employee where atasan_id is null));
+SELECT nama FROM sdm.employee 
+where atasan_id in 
+	(SELECT id FROM sdm.employee 
+	where atasan_id = 
+		(SELECT id FROM sdm.employee 
+		where atasan_id is null));
 
-select * from sdm.employee where nama not in (?); //Pak Budi
+select * from sdm.employee 
+where nama not in (?); //Pak Budi
 
 select @atasanid := id from sdm.employee where nama = ?;
 select case			//Lainnya
