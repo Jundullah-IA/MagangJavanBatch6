@@ -5,9 +5,9 @@ import javax.persistence.*;
 @Entity
 @Table(name = "company")
 public class CompanyModel {
-    Long id;
-    String nama;
-    String alamat;
+    public Long id;
+    public String nama;
+    public String alamat;
 
     public CompanyModel() {
     }

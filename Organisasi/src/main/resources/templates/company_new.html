@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create New Company</title>
+</head>
+<body>
+<div align="center">
+    <h1>Create New Company</h1>
+    <br/>
+    <form action="#" th:action="@{/saveCompany}" th:object="${company}" method="post">
+        <table border="0" cellpadding="10">
+            <tr>
+                <td>Nama Perusahaan :</td>
+                <td><input type="text" th:field="*{nama}" /></td>
+            </tr>
+            <tr>
+                <td>Alamat :</td>
+                <td><input type="text" th:field="*{alamat}" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><button type="submit">Save</button> </td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>

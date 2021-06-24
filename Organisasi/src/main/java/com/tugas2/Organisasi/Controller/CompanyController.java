@@ -26,6 +26,13 @@ public class CompanyController {
         return "index";
     }
 
+    @RequestMapping("/new")
+    public String viewNewPageCompany(Model model){
+        CompanyModel company = new CompanyModel();
+        model.addAttribute("company" , company);
+        return "company_new";
+    }
+
     @RequestMapping(value = "/saveCompany", method = RequestMethod.POST)
     public String saveCompany(@ModelAttribute("company") CompanyModel model){
         companyService.save(model);
@@ -33,10 +40,16 @@ public class CompanyController {
     }
 
     @RequestMapping("/edit/{id}")
-    public ModelAndView viewEditPageEmployee(@PathVariable(name = "id") Long id){
+    public ModelAndView viewEditPageCompany(@PathVariable(name = "id") Long id){
         ModelAndView mav = new ModelAndView("company_edit");
         CompanyModel comp = companyService.get(id);
-        mav.addObject("comp", comp);
+        mav.addObject("company", comp);
         return mav;
+    }
+
+    @RequestMapping("/delete/{id}")
+    public String deleteCompany(@PathVariable(name = "id") Long id){
+        companyService.delete(id);
+        return "redirect:/";
     }
 }

@@ -8,19 +8,22 @@
 <div align="center">
   <h1>Edit Company</h1>
   <br />
-  <form action="#" th:action="@{/saveCompany}" th:object="${company}" method="post">
+  <form action="#" th:action="@{/saveEmployee}" th:object="${employee}" method="post">
     <table border="0" cellpadding="10">
       <tr>
         <td>ID :</td>
         <td><input type="text" th:field="*{id}" readonly="readonly" /></td>
       </tr>
       <tr>
-        <td>Nama Perusahaan :</td>
+        <td>Nama Pegawai :</td>
         <td><input type="text" th:field="*{nama}" /></td>
       </tr>
       <tr>
-        <td>Alamat :</td>
-        <td><input type="text" th:field="*{alamat}" /></td>
+        <td>Atasan ID :</td>
+        <td><input type="text" th:field="*{atasan_id}" /></td>
+      </tr>
+      <td>Company ID :</td>
+      <td><input type="text" th:field="*{company_id}" /></td>
       </tr>
       <tr>
         <td colspan="2"><button type="submit">Save</button></td>
