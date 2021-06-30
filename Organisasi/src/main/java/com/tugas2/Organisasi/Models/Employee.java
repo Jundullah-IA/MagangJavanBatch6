@@ -8,9 +8,17 @@ public class Employee {
     Integer id;
     int atasan_id;
     int company_id;
-    String nama;
+    String nama , namaAtasan;
+    String companyName;
 
     public Employee() {
+    }
+
+    public Employee(Integer id, String nama, String namaAtasan, String companyName) {
+        this.id = id;
+        this.namaAtasan = namaAtasan;
+        this.companyName = companyName;
+        this.nama = nama;
     }
 
     @Id
@@ -45,5 +53,21 @@ public class Employee {
 
     public void setNama(String nama) {
         this.nama = nama;
+    }
+
+    public String getCompanyName() {
+        return companyName;
+    }
+
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
+    }
+
+    public String getNamaAtasan() {
+        return namaAtasan;
+    }
+
+    public void setNamaAtasan(String namaAtasan) {
+        this.namaAtasan = namaAtasan;
     }
 }

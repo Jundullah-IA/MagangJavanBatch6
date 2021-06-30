@@ -26,8 +26,8 @@
         <tr th:each="employee : ${employees}">
             <td th:text="${employee.id}">Product ID</td>
             <td th:text="${employee.nama}">Name</td>
-            <td th:text="${employee.atasan_id}">Name</td>
-            <td th:text="${employee.company_id}">Name</td>
+            <td th:text="${employee.namaAtasan}">Name</td>
+            <td th:text="${employee.companyName}">Name</td>
             <td>
                 <a th:href="'/employee/edit/' + ${employee.id}">Edit</a>
                 &nbsp; &nbsp; &nbsp;
@@ -36,6 +36,10 @@
         </tr>
         </tbody>
     </table>
+
+    <br><br>
+    <div><a th:href="createReport">Create Report</a></div>
 </div>
+
 </body>
 </html>

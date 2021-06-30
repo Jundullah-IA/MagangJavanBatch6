@@ -2,15 +2,14 @@ package com.tugas2.Organisasi.Controller;
 
 import com.tugas2.Organisasi.Models.Employee;
 import com.tugas2.Organisasi.Services.EmployeeService;
+import net.sf.jasperreports.engine.JRException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.io.FileNotFoundException;
 import java.util.List;
 
 @Controller
@@ -20,7 +19,7 @@ public class EmployeeController {
 
     @RequestMapping("/employee")
     public String mainEmployee(Model model) {
-        List<Employee> employees = service.listAll();
+        List<Employee> employees = service.listTampil();
         model.addAttribute("employees" , employees);
 
         return "employee_index";
@@ -50,6 +49,12 @@ public class EmployeeController {
     @RequestMapping("/employee/delete/{id}")
     public String deleteEmployee(@PathVariable(name = "id") Integer id){
         service.delete(id);
+        return "redirect:/employee";
+    }
+
+    @GetMapping("/createReport")
+    public String generateReport() throws FileNotFoundException, JRException {
+        String massage = service.exportReport("excel");
         return "redirect:/employee";
     }
 }
